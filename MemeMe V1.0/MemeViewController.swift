@@ -26,25 +26,27 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate,UINa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpTextField(topText, text: "TOP")
+        setUpTextField(bottomText, text: "BOTTOM")
+        pickerImageView.backgroundColor = UIColor.black
+        shareButton.isEnabled = false
+        cancelButton.isEnabled = false
+    }
+    
+    
+    func setUpTextField(_ textField: UITextField, text: String){
         let memeTextAttributes:[String: Any] = [
             NSAttributedStringKey.strokeColor.rawValue: UIColor.black,
             NSAttributedStringKey.foregroundColor.rawValue: UIColor.white,
             NSAttributedStringKey.font.rawValue: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
             NSAttributedStringKey.strokeWidth.rawValue: 0 ]
         
-        topText.defaultTextAttributes = memeTextAttributes
-        bottomText.defaultTextAttributes = memeTextAttributes
-        
-        topText.textAlignment = .center
-        bottomText.textAlignment = .center
-        topText.text = "TOP"
-        bottomText.text = "BOTTOM"
-        pickerImageView.backgroundColor = UIColor.black
-        topText.delegate = self
-        bottomText.delegate = self
-        shareButton.isEnabled = false
-        cancelButton.isEnabled = false
+        textField.defaultTextAttributes = memeTextAttributes
+        textField.textAlignment = .center
+        textField.text = text
+        textField.delegate = self
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -88,8 +90,6 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate,UINa
         return keyboardSize.cgRectValue.height
     }
     
-    
-    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField.tag == 1{
             currentTextField = "topTextField"
@@ -105,7 +105,7 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate,UINa
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-         cancelButton.isEnabled = true
+        cancelButton.isEnabled = true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -114,17 +114,20 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate,UINa
     }
     
     @IBAction func pickAnImageFromAlbum(_ sender: Any) {
-        let controller = UIImagePickerController()
-        controller.sourceType = .photoLibrary
-        controller.delegate = self
-        present(controller, animated: true, completion: nil)
         
-        
+        let sourceType = UIImagePickerControllerSourceType.photoLibrary
+        pickImage(sourceType)
     }
     
     @IBAction func pickAnImageFromCamera(_ sender: Any) {
+        
+        let sourceType = UIImagePickerControllerSourceType.camera
+        pickImage(sourceType)
+    }
+    
+    func pickImage(_ sourceType : UIImagePickerControllerSourceType){
         let controller = UIImagePickerController()
-        controller.sourceType = .camera
+        controller.sourceType = sourceType
         controller.delegate = self
         present(controller, animated: true, completion: nil)
     }
@@ -134,7 +137,7 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate,UINa
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage{
             pickerImageView.image = image
             shareButton.isEnabled = true
-             cancelButton.isEnabled = true
+            cancelButton.isEnabled = true
             dismiss(animated: true, completion: nil)
         }
     }
@@ -145,7 +148,7 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate,UINa
     
     
     @IBAction func shareMeme(_ sender: Any) {
-         memedImage = generateMemedImage()
+        memedImage = generateMemedImage()
         let activityController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         activityController.completionWithItemsHandler = { (activityType, completed, returnedItems, error) in
             if completed {
@@ -153,9 +156,9 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate,UINa
             }
         }
         if UIDevice.current.userInterfaceIdiom == .pad{
-              activityController.popoverPresentationController?.sourceView = self.view
+            activityController.popoverPresentationController?.sourceView = self.view
         }
-    present(activityController, animated: true, completion: nil )
+        present(activityController, animated: true, completion: nil )
     }
     
     @IBAction func cancelMeme(_ sender: Any) {
@@ -180,9 +183,9 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate,UINa
         return memedImage
     }
     
-     func save() {
+    func save() {
         let meme = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage: pickerImageView.image!, memedImage: memedImage)
-            memes.append(meme)
+        memes.append(meme)
     }
     
 }
