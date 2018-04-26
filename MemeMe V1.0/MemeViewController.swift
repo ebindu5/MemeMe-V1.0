@@ -39,7 +39,7 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate,UINa
             NSAttributedStringKey.strokeColor.rawValue: UIColor.black,
             NSAttributedStringKey.foregroundColor.rawValue: UIColor.white,
             NSAttributedStringKey.font.rawValue: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-            NSAttributedStringKey.strokeWidth.rawValue: 0 ]
+            NSAttributedStringKey.strokeWidth.rawValue: -1 ]
         
         textField.defaultTextAttributes = memeTextAttributes
         textField.textAlignment = .center

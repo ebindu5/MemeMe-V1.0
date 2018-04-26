@@ -21,14 +21,14 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1z4-2r-Wqu">
                                 <rect key="frame" x="0.0" y="70" width="375" height="547"/>
                             </imageView>
-                            <textField opaque="NO" tag="1" contentMode="scaleAspectFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="dHO-eL-l1p">
-                                <rect key="frame" x="16" y="110" width="343" height="48"/>
+                            <textField opaque="NO" tag="1" contentMode="scaleAspectFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="dHO-eL-l1p">
+                                <rect key="frame" x="20" y="110" width="339" height="48"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
-                            <textField opaque="NO" tag="2" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="k5F-6J-VZM">
-                                <rect key="frame" x="16" y="533" width="343" height="48"/>
+                            <textField opaque="NO" tag="2" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="k5F-6J-VZM">
+                                <rect key="frame" x="16" y="549" width="343" height="48"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
@@ -76,19 +76,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="ABM-T6-PRi" firstAttribute="top" secondItem="k5F-6J-VZM" secondAttribute="bottom" constant="20" id="4cl-gT-oVr"/>
                             <constraint firstItem="ABM-T6-PRi" firstAttribute="top" secondItem="1z4-2r-Wqu" secondAttribute="bottom" id="6IW-vR-uF2"/>
                             <constraint firstItem="lD3-nD-fVN" firstAttribute="leading" secondItem="pmI-Od-ZxB" secondAttribute="leading" id="8UZ-Lb-6CK"/>
                             <constraint firstItem="lD3-nD-fVN" firstAttribute="top" secondItem="pmI-Od-ZxB" secondAttribute="top" id="Bnk-PO-x3B"/>
+                            <constraint firstItem="1z4-2r-Wqu" firstAttribute="trailing" secondItem="pmI-Od-ZxB" secondAttribute="trailing" id="Fxo-SV-M0f"/>
                             <constraint firstItem="lD3-nD-fVN" firstAttribute="trailing" secondItem="pmI-Od-ZxB" secondAttribute="trailing" id="Jxu-7I-vdT"/>
-                            <constraint firstItem="dHO-eL-l1p" firstAttribute="leading" secondItem="pmI-Od-ZxB" secondAttribute="leading" constant="16" id="PQX-f5-LvS"/>
-                            <constraint firstItem="1z4-2r-Wqu" firstAttribute="centerX" secondItem="2cn-8M-bnM" secondAttribute="centerX" id="TC2-Id-wjM"/>
-                            <constraint firstItem="dHO-eL-l1p" firstAttribute="top" secondItem="pmI-Od-ZxB" secondAttribute="top" constant="90" id="YZc-Qf-f0T"/>
+                            <constraint firstItem="dHO-eL-l1p" firstAttribute="leading" secondItem="pmI-Od-ZxB" secondAttribute="leading" constant="20" id="PQX-f5-LvS"/>
+                            <constraint firstItem="dHO-eL-l1p" firstAttribute="top" secondItem="lD3-nD-fVN" secondAttribute="bottom" constant="40" id="XRs-gA-Tp2"/>
                             <constraint firstItem="ABM-T6-PRi" firstAttribute="trailing" secondItem="pmI-Od-ZxB" secondAttribute="trailing" id="agK-4H-NwL"/>
                             <constraint firstItem="1z4-2r-Wqu" firstAttribute="top" secondItem="lD3-nD-fVN" secondAttribute="bottom" id="cry-M8-Nxb"/>
                             <constraint firstItem="pmI-Od-ZxB" firstAttribute="trailing" secondItem="dHO-eL-l1p" secondAttribute="trailing" constant="16" id="deH-Ww-NjY"/>
                             <constraint firstItem="pmI-Od-ZxB" firstAttribute="trailing" secondItem="k5F-6J-VZM" secondAttribute="trailing" constant="16" id="dgJ-6Q-N9a"/>
                             <constraint firstItem="k5F-6J-VZM" firstAttribute="leading" secondItem="pmI-Od-ZxB" secondAttribute="leading" constant="16" id="i0b-ND-ENv"/>
-                            <constraint firstItem="k5F-6J-VZM" firstAttribute="top" secondItem="1z4-2r-Wqu" secondAttribute="bottom" constant="-84" id="jD5-vH-Fch"/>
                             <constraint firstItem="ABM-T6-PRi" firstAttribute="leading" secondItem="pmI-Od-ZxB" secondAttribute="leading" id="mhc-O8-K0h"/>
                             <constraint firstItem="ABM-T6-PRi" firstAttribute="bottom" secondItem="pmI-Od-ZxB" secondAttribute="bottom" id="pTm-aH-xBE"/>
                             <constraint firstItem="1z4-2r-Wqu" firstAttribute="leading" secondItem="pmI-Od-ZxB" secondAttribute="leading" id="rFi-nk-nac"/>
